@@ -4,20 +4,20 @@ from huggingface_hub import hf_hub_download
 import joblib
 import os
 
-from huggingface_hub import HfApi, login
-login(token=os.getenv("HF_TOKEN"))
+token = os.getenv("HF_TOKEN")
 
 # Download the model from the Model Hub
 model_path = hf_hub_download(
     repo_id="tam3222/tourism",
-    filename="best_tourism_package_prediction_model_v1.joblib"
+    filename="best_tourism_package_prediction_model_v1.joblib",
+    token=token
 )
 
 # Load the model
 model = joblib.load(model_path)
 
 # Streamlit UI for Customer Conversion Prediction
-st.title("Tourism Package Prediction App")
+st.title("Thamizhi's Tourism Package Prediction App")
 st.write("This app predicts whether a customer is likely to purchase the travel package based on their details.")
 st.write("Please enter the customer details below:")
 
