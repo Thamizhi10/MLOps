@@ -5,7 +5,7 @@ import joblib
 import os
 
 from huggingface_hub import HfApi, login
-login(os.getenv("HF_TOKEN"))
+login(token=os.getenv("HF_TOKEN"))
 
 # Download the model from the Model Hub
 model_path = hf_hub_download(
